@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : J:\未完成\浩浩wangcb\19.3.24\1\1_MPU_ADIS_新建\1.pcbdoc
+Date         : 2019-03-25
+Time         : 下午 11:03:23
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 69
+    Connections routed, 69
+    Connections remaing, 0
+count : 4

@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc
+Date         : 2019-03-25
+Time         : 下午 08:31:43
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 93
+    Connections routed, 93
+    Connections remaing, 0
+count : 4

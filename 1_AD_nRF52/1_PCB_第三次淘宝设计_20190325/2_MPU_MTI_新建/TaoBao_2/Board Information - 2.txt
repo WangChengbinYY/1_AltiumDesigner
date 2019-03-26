@@ -1,0 +1,12 @@
+Board Information Report
+Filename     : J:\未完成\浩浩wangcb\19.3.24\2\2_MPU_MTI_新建\2.pcbdoc
+Date         : 2019-03-25
+Time         : 下午 11:49:16
+Time Elapsed : 00:00:00
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 80
+    Connections routed, 80
+    Connections remaing, 0
+count : 4

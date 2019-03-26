@@ -1,0 +1,49 @@
+Protel Design System Design Rule Check
+PCB File : J:\未完成\浩浩wangcb\19.3.24\2\2_MPU_MTI_新建\2.pcbdoc
+Date     : 2019-03-25
+Time     : 下午 11:43:25
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InNet('VCC3.7'))
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=10mil) (Preferred=10mil) (InNet('VCC3.3'))
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Violation between Pad U3-(1939.612mil,2079.094mil)  Multi-Layer
+   Violation between Pad U3-(1939.612mil,2874.374mil)  Multi-Layer
+Rule Violations :2
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=10mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+   Violation between Track (1827.4mil,1929.475mil)(1827.4mil,3012.155mil)  Keep-Out Layer and 
+                     Pad U3-2(1877.402mil,2576.734mil)  Top Layer
+   Violation between Track (1827.4mil,1929.475mil)(1827.4mil,3012.155mil)  Keep-Out Layer and 
+                     Pad U3-4(1877.402mil,2376.734mil)  Top Layer
+   Violation between Track (1827.4mil,1929.475mil)(1827.4mil,3012.155mil)  Keep-Out Layer and 
+                     Pad U3-1(1877.402mil,2676.734mil)  Top Layer
+   Violation between Track (1827.4mil,1929.475mil)(1827.4mil,3012.155mil)  Keep-Out Layer and 
+                     Pad U3-3(1877.402mil,2476.734mil)  Top Layer
+   Violation between Track (1827.4mil,1929.475mil)(1827.4mil,3012.155mil)  Keep-Out Layer and 
+                     Pad U3-5(1877.402mil,2276.734mil)  Top Layer
+Rule Violations :5
+
+Processing Rule : Broken-Net Constraint ( (All) )
+   Violation between Net GND     Subnet : CN1-1    C1-1     C3-1     C4-1     C2-1     C8-1     U1-2          Subnet : CARD1-6  C9-2     U5-4     U4-11    U4-18    U5-25    U4-20    U5-14    U5-13    U5-8                   U2-24    U2-34    U2-11    C6-1     C5-1     SW2-2    D1-2     SW3-2    U2-1          Subnet : U3-2     C7-1     CN2-9    
+Rule Violations :1
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Pad U4-25(2211.15mil,2585.725mil)  Top Layer and 
+                     Pad U4-25(2176.89mil,2585.725mil)  Top Layer
+   Violation between Pad U4-25(2211.15mil,2554.225mil)  Top Layer and 
+                     Pad U4-25(2176.89mil,2554.225mil)  Top Layer
+Rule Violations :2
+
+
+Violations Detected : 10
+Time Elapsed        : 00:00:00

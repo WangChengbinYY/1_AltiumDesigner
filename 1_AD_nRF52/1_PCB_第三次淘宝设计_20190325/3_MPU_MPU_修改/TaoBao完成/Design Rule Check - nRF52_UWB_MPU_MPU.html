@@ -1,0 +1,321 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 { 
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body { 
+			font-family : verdana;
+		}
+		td, th {  
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;	
+		}
+		th { 
+			background-color : #A6CAF0;
+		
+		}
+		th.column1, td.column1 { 
+			text-align: left;
+			width : auto; 
+		}
+		table { 
+			width : 100%; 
+		}
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3 {
+			padding-top : 0.1em;
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top
+		}
+		.front_matter_column1 {
+			text-align : right;
+		}
+		.total_column1, .total_column {
+			font-weight : bold;	
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.front_matter_column2 {
+			text-align : center;
+		}
+		.front_matter_column3 {
+			text-align : left;
+		}
+		.warning, .error { 
+			color : red;
+			font-weight : bold;
+		}	
+		tr.onmouseout_odd { 
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow 
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+			
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);		
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {	
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}	
+	</script></head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\PROGRAM FILES\ALTIUM DESIGNER 6\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">2019-03-25</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">下午 08:30:06</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc" class="file"><acronym title="J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc">J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc</acronym></a></td>
+</tr>
+</table>
+<hr><a name="IDASA4WN"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEB4WN">Clearance Constraint (Gap=0.3mm) ((InPolygon)),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKB4WN">Width Constraint (Min=0.254mm) (Max=2.54mm) (Preferred=0.254mm) (InNet('VCC3.3'))</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAOC4WN">Width Constraint (Min=0.254mm) (Max=2.54mm) (Preferred=0.254mm) (InNet('VCC3.7'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAUC4WN">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAMD4WN">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDASD4WN">Width Constraint (Min=0.152mm) (Max=2.54mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAYD4WN">Clearance Constraint (Gap=0.152mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA4D4WN">Broken-Net Constraint ( (All) )</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDASE4WN">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">12</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">21</td>
+</tr>
+</table><br><hr><a name="IDAKB4WN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Width Constraint (Min=0.254mm) (Max=2.54mm) (Preferred=0.254mm) (InNet('VCC3.3'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1347.025mil|Location2.X=2504.595mil|Location1.Y=1653.893mil|Location2.Y=2440.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1347.025mil|Location2.X=2504.595mil|Location1.Y=1653.893mil|Location2.Y=2440.877mil|Absolute=True">Track (48.916mm,51.623mm)(48.916mm,52.384mm)  Top Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1343.525mil|Location2.X=2501.095mil|Location1.Y=1635.418mil|Location2.Y=2422.402mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1343.525mil|Location2.X=2501.095mil|Location1.Y=1635.418mil|Location2.Y=2422.402mil|Absolute=True">Track (48.738mm,51.445mm)(48.916mm,51.623mm)  Top Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1591.925mil|Location2.X=2749.495mil|Location1.Y=1641.358mil|Location2.Y=2428.342mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1591.925mil|Location2.X=2749.495mil|Location1.Y=1641.358mil|Location2.Y=2428.342mil|Absolute=True">Track (55.136mm,51.308mm)(55.136mm,52.062mm)  Top Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1584.475mil|Location2.X=2742.045mil|Location1.Y=1619.068mil|Location2.Y=2406.052mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1584.475mil|Location2.X=2742.045mil|Location1.Y=1619.068mil|Location2.Y=2406.052mil|Absolute=True">Track (54.758mm,50.93mm)(55.136mm,51.308mm)  Top Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1577.025mil|Location2.X=2734.595mil|Location1.Y=1594.618mil|Location2.Y=2381.602mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1577.025mil|Location2.X=2734.595mil|Location1.Y=1594.618mil|Location2.Y=2381.602mil|Absolute=True">Track (54.758mm,50.066mm)(54.758mm,50.93mm)  Top Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAUC4WN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1696.635mil|Location2.X=2854.205mil|Location1.Y=2147.846mil|Location2.Y=2934.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1696.635mil|Location2.X=2854.205mil|Location1.Y=2147.846mil|Location2.Y=2934.83mil|Absolute=True">Pad Free-(57.796mm,64.87mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1299.098mil|Location2.X=2456.668mil|Location1.Y=1365.757mil|Location2.Y=2152.741mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1299.098mil|Location2.X=2456.668mil|Location1.Y=1365.757mil|Location2.Y=2152.741mil|Absolute=True">Pad U3-(44.159mm,44.685mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1299.098mil|Location2.X=2456.668mil|Location1.Y=2147.846mil|Location2.Y=2934.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1299.098mil|Location2.X=2456.668mil|Location1.Y=2147.846mil|Location2.Y=2934.83mil|Absolute=True">Pad U3-(44.159mm,64.885mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDA4D4WN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Broken-Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1865.468mil|Location2.X=3082.402mil|Location1.Y=1832.302mil|Location2.Y=2659.258mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1865.468mil|Location2.X=3082.402mil|Location1.Y=1832.302mil|Location2.Y=2659.258mil|Absolute=True">Net INT_IMUA</acronym></a><br>     Subnet : U2-4     <br>     Subnet : U4-12    <br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDASE4WN"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True">Pad U4-25(49.091mm,53.484mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True">Pad U4-25(49.091mm,54.284mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True">Pad U4-25(49.961mm,53.484mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True">Pad U4-25(49.091mm,54.284mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True">Pad U4-25(49.961mm,54.284mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True">Pad U4-25(49.091mm,54.284mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True">Pad U4-25(49.961mm,53.484mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True">Pad U4-25(49.091mm,53.484mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True">Pad U4-25(49.961mm,54.284mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1353.925mil|Location2.X=2511.495mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True">Pad U4-25(49.091mm,53.484mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1712.168mil|Location2.Y=2499.152mil|Absolute=True">Pad U4-25(49.961mm,53.484mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1388.175mil|Location2.X=2545.745mil|Location1.Y=1743.668mil|Location2.Y=2530.652mil|Absolute=True">Pad U4-25(49.961mm,54.284mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True">Pad U5-25(55.314mm,53.408mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True">Pad U5-25(55.314mm,54.208mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True">Pad U5-25(56.184mm,53.408mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True">Pad U5-25(55.314mm,54.208mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True">Pad U5-25(56.184mm,54.208mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True">Pad U5-25(55.314mm,54.208mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True">Pad U5-25(56.184mm,53.408mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True">Pad U5-25(55.314mm,53.408mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True">Pad U5-25(56.184mm,54.208mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1598.925mil|Location2.X=2756.495mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True">Pad U5-25(55.314mm,53.408mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1709.168mil|Location2.Y=2496.152mil|Absolute=True">Pad U5-25(56.184mm,53.408mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=J:\%E6%9C%AA%E5%AE%8C%E6%88%90\%E6%B5%A9%E6%B5%A9wangcb\19.3.24\3_MPU_MPU_%E4%BF%AE%E6%94%B9\3_MPU_MPU_%E4%BF%AE%E6%94%B9\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=J:\未完成\浩浩wangcb\19.3.24\3_MPU_MPU_修改\3_MPU_MPU_修改\nRF52_UWB_MPU_MPU.pcbdoc;viewname=PCBEditor;Action=Area|Location1.X=1633.175mil|Location2.X=2790.745mil|Location1.Y=1740.668mil|Location2.Y=2527.652mil|Absolute=True">Pad U5-25(56.184mm,54.208mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>
